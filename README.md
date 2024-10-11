@@ -1,3 +1,3 @@
 # Calculator-
 
-- A basic calculator app in flutter.
+## - A basic calculator project in Flutter.
