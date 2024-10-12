@@ -27,8 +27,8 @@ class Calculator extends StatefulWidget {
 class _CalculatorState extends State<Calculator> {
   String displayText = '0';
   String? operand;
-  double? firstNum;
-  double? secondNum;
+  int? firstNum;
+  int? secondNum;
 
   Widget calcbutton(String btnTxt, Color btnColor, Color txtColor){
     return RawMaterialButton(
@@ -55,11 +55,11 @@ class _CalculatorState extends State<Calculator> {
         secondNum = null;
         operand = null;
       } else if (btnText == '+' || btnText == '-' || btnText == '*' || btnText == '/') {
-        firstNum = double.tryParse(displayText);
+        firstNum = int.tryParse(displayText);
         operand = btnText;
         displayText = '0';
       } else if (btnText == '=') {
-        secondNum = double.tryParse(displayText);
+        secondNum = int.tryParse(displayText);
         if (firstNum != null && secondNum != null && operand != null) {
           switch (operand) {
             case '+':
