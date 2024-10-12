@@ -31,13 +31,14 @@ class Calculator extends StatefulWidget {
 
 class _CalculatorState extends State<Calculator> {
   String displayText = '0';
+  String? operand;
+  double? firstNum;
+  double? secondNum;
 
   Widget calcbutton(String btnTxt, Color btnColor, Color txtColor){
     return RawMaterialButton(
       onPressed: (){
-        setState(() {
-          displayText = btnTxt;
-        });
+        buttonPressed(btnTxt);
       },
       shape: const CircleBorder(),
       fillColor: btnColor,
@@ -49,6 +50,48 @@ class _CalculatorState extends State<Calculator> {
         ),
       ),
     );
+  }
+
+  void buttonPressed(String btnText) {
+    setState(() {
+      if (btnText == 'AC') {
+        displayText = '0';
+        firstNum = null;
+        secondNum = null;
+        operand = null;
+      } else if (btnText == '+' || btnText == '-' || btnText == '*' || btnText == '/') {
+        firstNum = double.tryParse(displayText);
+        operand = btnText;
+        displayText = '0';
+      } else if (btnText == '=') {
+        secondNum = double.tryParse(displayText);
+        if (firstNum != null && secondNum != null && operand != null) {
+          switch (operand) {
+            case '+':
+              displayText = (firstNum! + secondNum!).toString();
+              break;
+            case '-':
+              displayText = (firstNum! - secondNum!).toString();
+              break;
+            case '*':
+              displayText = (firstNum! * secondNum!).toString();
+              break;
+            case '/':
+              displayText = (firstNum! / secondNum!).toString();
+              break;
+          }
+          firstNum = null;
+          secondNum = null;
+          operand = null;
+        }
+      } else {
+        if (displayText == '0') {
+          displayText = btnText;
+        } else {
+          displayText += btnText;
+        }
+      }
+    });
   }
   @override
   Widget build(BuildContext context){
