@@ -107,10 +107,10 @@ class _CalculatorState extends State<Calculator> {
              Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Padding(padding: EdgeInsets.all(10.0),
+                Padding(padding: const EdgeInsets.all(10.0),
                   child: Text(displayText,
                     textAlign: TextAlign.left,
-                    style: TextStyle(color: Colors.white,
+                    style: const TextStyle(color: Colors.white,
                         fontSize: 100
                     ),
                   ),
@@ -169,7 +169,7 @@ class _CalculatorState extends State<Calculator> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                calcbutton('0', Colors.grey.shade800, Colors.black  ),
-                SizedBox(width: 80),
+                const SizedBox(width: 80),
                 calcbutton('.', Colors.grey.shade800, Colors.white),
 
                 calcbutton('=', Colors.grey.shade700, Colors.white),
