@@ -10,14 +10,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Calculator(),
+      home: Calculator(),
     );
   }
 }
@@ -103,7 +98,6 @@ class _CalculatorState extends State<Calculator> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            //Calculator display
              Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -121,7 +115,6 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                //here buttons function will be called where we will pass some arguements
                 calcbutton('AC', Colors.grey, Colors.black),
                 calcbutton('+/-', Colors.grey, Colors.black),
                 calcbutton('%', Colors.grey, Colors.black),
@@ -129,11 +122,9 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(height: 10),
-            //now we will copy above row code and many more rows
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                //here buttons function will be called where we will pass some arguements
                 calcbutton('7', Colors.grey.shade800, Colors.black),
                 calcbutton('8', Colors.grey.shade800, Colors.black),
                 calcbutton('9', Colors.grey.shade800, Colors.black),
@@ -141,11 +132,9 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(height: 10),
-            //same as above we will make more rows in a similar way
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                //here buttons function will be called where we will pass some arguements
                 calcbutton('4', Colors.grey.shade800, Colors.black),
                 calcbutton('5', Colors.grey.shade800, Colors.black),
                 calcbutton('6', Colors.grey.shade800, Colors.black),
@@ -156,7 +145,6 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                //here buttons function will be called where we will pass some arguements
                 calcbutton('1', Colors.grey.shade800, Colors.black),
                 calcbutton('2', Colors.grey.shade800, Colors.black),
                 calcbutton('3', Colors.grey.shade800, Colors.black),
@@ -164,7 +152,6 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(height: 10),
-            //now last row is different as it has 0 button
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
