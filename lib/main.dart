@@ -30,18 +30,18 @@ class _CalculatorState extends State<Calculator> {
   int? firstNum;
   int? secondNum;
 
-  Widget calcbutton(String btnTxt, Color btnColor, Color txtColor){
+  Widget calcbutton(String btnText, Color btnColor, Color textColor){
     return RawMaterialButton(
       onPressed: (){
-        buttonPressed(btnTxt);
+        buttonPressed(btnText);
       },
       shape: const CircleBorder(),
       fillColor: btnColor,
       padding: const EdgeInsets.all(20),
-      child: Text(btnTxt,
+      child: Text(btnText,
         style: TextStyle(
           fontSize: 35,
-          color: txtColor,
+          color: textColor,
         ),
       ),
     );
