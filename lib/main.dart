@@ -104,11 +104,11 @@ class _CalculatorState extends State<Calculator> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             //Calculator display
-            const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(padding: EdgeInsets.all(10.0),
-                  child: Text('0',
+                  child: Text(displayText,
                     textAlign: TextAlign.left,
                     style: TextStyle(color: Colors.white,
                         fontSize: 100
