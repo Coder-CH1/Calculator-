@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -29,13 +30,14 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  get child => null;
-
+  String displayText = '0';
 
   Widget calcbutton(String btnTxt, Color btnColor, Color txtColor){
     return RawMaterialButton(
       onPressed: (){
-        //TODO add function for button press
+        setState(() {
+          displayText = btnTxt;
+        });
       },
       shape: const CircleBorder(),
       fillColor: btnColor,
@@ -92,7 +94,7 @@ class _CalculatorState extends State<Calculator> {
                 calcbutton('7', Colors.grey.shade800, Colors.black),
                 calcbutton('8', Colors.grey.shade800, Colors.black),
                 calcbutton('9', Colors.grey.shade800, Colors.black),
-                calcbutton('x', Colors.amber.shade700, Colors.white),
+                calcbutton('*', Colors.amber.shade700, Colors.white),
               ],
             ),
             const SizedBox(height: 10),
@@ -123,22 +125,10 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                //this is button 0
-                // ignore: deprecated_member_use
-                RawMaterialButton(
-                  padding: const EdgeInsets.fromLTRB(34, 20, 128, 20),
-                  onPressed: (){
-                    //button function
-                  },
-                  shape: const StadiumBorder(),
-                  child: const Text("0",
-                    style: TextStyle(
-                        fontSize: 35,
-                        color: Colors.white
-                    ),
-                  ),
-                ),
+               calcbutton('0', Colors.grey.shade800, Colors.black  ),
+                SizedBox(width: 80),
                 calcbutton('.', Colors.grey.shade800, Colors.white),
+
                 calcbutton('=', Colors.grey.shade700, Colors.white),
               ],
             ),
